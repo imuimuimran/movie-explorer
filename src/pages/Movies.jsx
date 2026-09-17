@@ -19,7 +19,7 @@ function Movies() {
         const data = await getShows();
         setShows(data);
       } catch (err) {
-        console.error(err);
+        // console.error(err);
         setError("Failed to load shows.");
       } finally {
         setLoading(false);
@@ -42,7 +42,7 @@ function Movies() {
         const data = await getShows();
         setShows(data);
       } catch (err) {
-        console.error(err);
+        // console.error(err);
         setError("Failed to load shows.");
       } finally {
         setLoading(false);
@@ -60,7 +60,7 @@ function Movies() {
 
       setShows(results);
     } catch (err) {
-      console.error(err);
+      // console.error(err);
       setError("Failed to search shows.");
     } finally {
       setLoading(false);
