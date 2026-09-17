@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import { getShows, searchShows } from "../api/tvmaze";
 import MovieCard from "../components/MovieCard";
+import MovieModal from "../components/MovieModal";
 
 function Movies() {
   const [shows, setShows] = useState([]);
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [selectedShow, setSelectedShow] = useState(null);
 
   useEffect(() => {
     async function loadShows() {
@@ -58,8 +60,8 @@ function Movies() {
 
       setShows(results);
     } catch (err) {
-        console.error(err);
-        setError("Failed to search shows.");
+      console.error(err);
+      setError("Failed to search shows.");
     } finally {
       setLoading(false);
     }
@@ -110,12 +112,19 @@ function Movies() {
               <MovieCard
                 key={show.id}
                 show={show}
-                onDetails={() => {}}
+                onDetails={setSelectedShow}
               />
             ))}
           </section>
         )}
 
+
+        <MovieModal
+          show={selectedShow}
+          onClose={() => setSelectedShow(null)}
+        />
+
+        
       </div>
     </main>
   );
