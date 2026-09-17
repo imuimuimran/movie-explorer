@@ -139,3 +139,29 @@ a {
 
   font-weight: 700;
 }
+
+/* Footer */
+
+.footer {
+  background: #111116;
+  border-top: 1px solid #25252c;
+}
+
+.footer-inner {
+  min-height: 68px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  color: #9999a5;
+}
+
+@media (max-width: 680px) {
+  .footer-inner {
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    padding: 14px 0;
+  }
+}
